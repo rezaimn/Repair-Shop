@@ -1,0 +1,83 @@
+<div [@routerTransition]>
+    <div class="container">
+        <div class="search-box">
+            <app-custom-input icon="search" title="جستجو" placeholder="جستجو در محصولات"
+                              (textChanged)="search=$event">
+            </app-custom-input>
+
+            <!--<p>|</p>-->
+            <!--<svg-icon src="../../../assets/images/svg/list.svg" class="list-icon"-->
+            <!--[svgStyle]="{'height.px':20,'width.px':20,'fill':'#eee'}"></svg-icon>-->
+        </div>
+        <div class="scrollable-div">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <svg-icon src="../../../assets/images/svg/add.svg" class="list-icon"
+                                      [svgStyle]="{'height.px':30,'width.px':30,'fill':'#eee'}"></svg-icon>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن موتور کاسترول</h6>
+                            <p class="white-color">با بهترین کیفیت</p>
+                            <p class="orange-color">120000 تومان</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon src="../../../assets/images/svg/taxi.svg" class="float-right"
+                                      [svgStyle]="{'height.px':60,'width.px':60,'fill':'#fff'}"></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <svg-icon src="../../../assets/images/svg/add.svg" class="list-icon"
+                                      [svgStyle]="{'height.px':30,'width.px':30,'fill':'#eee'}"></svg-icon>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن موتور کاسترول</h6>
+                            <p class="white-color">با بهترین کیفیت</p>
+                            <p class="orange-color">120000 تومان</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon src="../../../assets/images/svg/taxi.svg" class="float-right"
+                                      [svgStyle]="{'height.px':60,'width.px':60,'fill':'#fff'}"></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <svg-icon src="../../../assets/images/svg/add.svg" class="list-icon"
+                                      [svgStyle]="{'height.px':30,'width.px':30,'fill':'#eee'}"></svg-icon>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن موتور کاسترول</h6>
+                            <p class="white-color">با بهترین کیفیت</p>
+                            <p class="orange-color">120000 تومان</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon src="../../../assets/images/svg/taxi.svg" class="float-right"
+                                      [svgStyle]="{'height.px':60,'width.px':60,'fill':'#fff'}"></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="basket-box">
+    <span>
+        <h6 class="white-color">سبد خرید</h6>
+    </span>
+    <span>
+            <p class="basket-add-count">5</p>
+           <svg-icon src="../../../assets/images/svg/basket.svg" class="float-right"
+                     [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+
+    </span>
+</div>

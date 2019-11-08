@@ -1,0 +1,26 @@
+<div class="start-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+
+            <div class="start-page-slider">
+                <div class="container ">
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let slide of imageSources">
+                            <ng-template carouselSlide [id]="slide?.id">
+                                <img [src]="slide?.src" [alt]="slide?.alt" [title]="slide?.alt">
+                                <h4 class="orange-color slider-title">{{slide.title}}</h4>
+                                <p class="white-color slider-text">{{slide.text}}</p>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                </div>
+                <div class="row">
+                    <div class="col-12 center-button">
+                        <button type="button" class="button-basic button-warning" (click)="showLoginPage()">ورود به برنامه</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

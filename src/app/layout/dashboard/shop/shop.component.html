@@ -1,0 +1,75 @@
+<comming-soon></comming-soon>
+<div [@routerTransition]>
+    <div class="container">
+        <div class="search-box">
+            <app-custom-input icon="search" title="جستجو" placeholder="جستجو در دسته بندی" (textChanged)="search = $event">
+            </app-custom-input>
+
+            <!--<p>|</p>-->
+            <!--<svg-icon src="../../../assets/images/svg/list.svg" class="list-icon"-->
+            <!--[svgStyle]="{'height.px':20,'width.px':20,'fill':'#eee'}"></svg-icon>-->
+        </div>
+        <div class="scrollable-div">
+            <div class="card" (click)="showProducts(1)">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <p class="orange-color customer-payment">250 محصول</p>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن ماشین</h6>
+                            <p class="white-color">انواع روغن ماشین ایرانی و خارجی</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon
+                                src="../../../assets/images/svg/taxi.svg"
+                                class="float-right"
+                                [svgStyle]="{ 'height.px': 60, 'width.px': 60, fill: '#fff' }"
+                            ></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" (click)="showProducts(2)">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <p class="orange-color customer-payment">250 محصول</p>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن ماشین</h6>
+                            <p class="white-color">انواع روغن ماشین ایرانی و خارجی</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon
+                                src="../../../assets/images/svg/taxi.svg"
+                                class="float-right"
+                                [svgStyle]="{ 'height.px': 60, 'width.px': 60, fill: '#fff' }"
+                            ></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" (click)="showProducts(3)">
+                <div class="card-body">
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <p class="orange-color customer-payment">250 محصول</p>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">روغن ماشین</h6>
+                            <p class="white-color">انواع روغن ماشین ایرانی و خارجی</p>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon
+                                src="../../../assets/images/svg/taxi.svg"
+                                class="float-right"
+                                [svgStyle]="{ 'height.px': 60, 'width.px': 60, fill: '#fff' }"
+                            ></svg-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

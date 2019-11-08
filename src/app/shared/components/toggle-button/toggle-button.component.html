@@ -1,0 +1,8 @@
+<input type="checkbox" [id]="id" [checked]="status" [disabled]="disabled"
+       (change)="changed.emit($event.target.checked)">
+<label class="toggle-button-switch"
+       [for]="id"></label>
+<div class="toggle-button-text">
+    <div class="toggle-button-text-on">{{okText}}</div>
+    <div class="toggle-button-text-off"></div>
+</div>

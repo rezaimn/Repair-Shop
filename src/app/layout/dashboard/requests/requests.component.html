@@ -1,0 +1,255 @@
+<div [@routerTransition]>
+    <div class="container">
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel [id]="'ngb-panel-' + request.id" *ngFor="let request of requestsList; let i = index">
+                <ng-template ngbPanelHeader>
+                    <div class="row request-collapse-head" [ngClass]="{ 'green-border': request.attendingshop != null }">
+                        <div class="title-bar">
+                            <span>
+                                <strong class="orange-color" *ngIf="request.timer > 0 && request.attendingshop == null"
+                                    >{{ request.timer }} ثانیه</strong
+                                >
+                                <strong class="orange-color" *ngIf="request.attendingshop != null">در انتظار تایید مشتری</strong>
+                            </span>
+                            <span class="float-right">
+                                <p class="white-color remain-time">
+                                    {{
+                                        request.pack.buyer_car.brand.brand +
+                                            ' ' +
+                                            request.pack.buyer_car.carModel.carModel +
+                                            ' ' +
+                                            request.pack.buyer_car.carType.carType
+                                    }}
+                                </p>
+                            </span>
+                        </div>
+                        <div class="col col-4">
+                            <p class="white-color customer-payment">{{ request.pack.total_cost }} تومان</p>
+                            <span class="float-left">
+                                <p class="orange-color" *ngIf="request.attendingshop == null">جزئیات</p>
+                            </span>
+                            <span class="float-left arrow-down-base" *ngIf="request.attendingshop == null">
+                                <button ngbPanelToggle class="btn btn-link p-0">
+                                    <svg-icon
+                                        src="../../../assets/images/svg/down-arrow.svg"
+                                        class="svg-orange"
+                                        [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#ff9917' }"
+                                    ></svg-icon>
+                                </button>
+                            </span>
+                        </div>
+                        <div class=" col col-5">
+                            <p class="white-color">قیمت کارشناس</p>
+                            <span class="float-right">
+                                <svg-icon
+                                    src="../../../assets/images/svg/time-cal.svg"
+                                    class="svg-orange"
+                                    [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#ff9917' }"
+                                ></svg-icon>
+                            </span>
+                            <span>
+                                <p class="orange-color">
+                                    {{ request.pack.preferred_date | jalaliDate }}
+                                    <strong class="orange-color">{{ timeMap[request.pack.preferred_time_frame] }}</strong>
+                                </p>
+                            </span>
+                        </div>
+                        <div class=" col col-3 ">
+                            <div class="float-right">
+                                <svg-icon
+                                    *ngIf="!request.pack.buyer_car.imageUrl"
+                                    src="../../../assets/images/svg/taxi.svg"
+                                    class="svg-orange"
+                                    [svgStyle]="{ 'height.px': 70, 'width.px': 70, fill: '#fff' }"
+                                ></svg-icon>
+                                <img
+                                    *ngIf="request.pack.buyer_car.imageUrl"
+                                    class="car-img"
+                                    [src]="environment.imageUrl + request.pack.buyer_car.imageUrl"
+                                    alt="عکس خودرو"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="card-body-request">
+                        <div>
+                            <p class="request-notice">
+                                فقط در شرایطی امکان تایید سفارش وجود دارد که امکان ارائه ی سرویس به همراه تمام خدمات موجود باشد.
+                            </p>
+                            <p class="requested-services-text">خدمات درخواستی:</p>
+                            <div
+                                class="row request-box"
+                                [ngClass]="{ 'green-back': service.checked }"
+                                *ngFor="let service of request.pack.services; let j = index"
+                            >
+                                <div class="col-2">
+                                    <app-toggle-button
+                                        [disabled]="request.attendingshop"
+                                        [status]="service.checked"
+                                        [okText]="'OK'"
+                                        [id]="'s' + service.id"
+                                        (changed)="checkServices($event, i, j)"
+                                    >
+                                    </app-toggle-button>
+                                </div>
+                                <div class="col-8">
+                                    <marquee class="request-text" behavior="scroll" direction="left">{{
+                                        service.name + ' ' + service.description
+                                    }}</marquee>
+                                </div>
+                                <div class="col-2">
+                                    <svg-icon
+                                        *ngIf="!service.checked"
+                                        src="../../../assets/images/svg/close.svg"
+                                        class="float-right"
+                                        [svgStyle]="{ 'height.px': 30, 'width.px': 30, fill: '#bbb' }"
+                                    ></svg-icon>
+                                    <svg-icon
+                                        *ngIf="service.checked"
+                                        src="../../../assets/images/svg/check.svg"
+                                        class="float-right"
+                                        [svgStyle]="{ 'height.px': 30, 'width.px': 30, fill: '#fff' }"
+                                    ></svg-icon>
+                                </div>
+                            </div>
+                            <p class="requested-services-text">محصولات درخواستی:</p>
+                            <div
+                                class="row request-box"
+                                [ngClass]="{ 'green-back': product.product.checked }"
+                                *ngFor="let product of request.pack.products; let j = index"
+                            >
+                                <div class="col-2">
+                                    <app-toggle-button
+                                        [disabled]="request.attendingshop"
+                                        [status]="product.product.checked"
+                                        [id]="'p' + product.product.id"
+                                        (changed)="checkProducts($event, i, j)"
+                                    >
+                                    </app-toggle-button>
+                                </div>
+                                <div class="col-8">
+                                    <marquee class="request-text" behavior="scroll" direction="left">{{
+                                        product.product.special_name
+                                    }}</marquee>
+                                    <!--<p class="request-text"></p>-->
+                                </div>
+                                <div class="col-2">
+                                    <svg-icon
+                                        *ngIf="!product.product.checked"
+                                        src="../../../assets/images/svg/close.svg"
+                                        class="float-right"
+                                        [svgStyle]="{ 'height.px': 30, 'width.px': 30, fill: '#bbb' }"
+                                    ></svg-icon>
+                                    <svg-icon
+                                        *ngIf="product.product.checked"
+                                        src="../../../assets/images/svg/check.svg"
+                                        class="float-right"
+                                        [svgStyle]="{ 'height.px': 30, 'width.px': 30, fill: '#fff' }"
+                                    ></svg-icon>
+                                </div>
+                            </div>
+                            <p class="requested-services-text">ضریب تعمیرگاه:</p>
+                            <div class="custom-slider">
+                                <ng5-slider [(value)]="request.pack.repairShopPercent" [options]="options"></ng5-slider>
+                            </div>
+                            <div class="row total-cost-box ">
+                                <div class="col-6">
+                                    <p class="request-price">
+                                        تومان
+                                        <strong>{{
+                                            request.pack.total_cost + (request.pack.total_cost * request.pack.repairShopPercent) / 100
+                                        }}</strong>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="repair-shop-cost">قیمت تعمیرگاه</p>
+                                </div>
+                            </div>
+                            <div class="row accept-request-box">
+                                <div class="col-4">
+                                    <button
+                                        type="button"
+                                        (click)="open(canceled); setSelectedId(request.pack.id)"
+                                        class="button-basic button-danger"
+                                    >
+                                        لغو
+                                    </button>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="timer" *ngIf="request.until > 0">{{ request.until }}</h4>
+                                </div>
+                                <div class="col-4">
+                                    <button
+                                        type="button"
+                                        class="button-basic button-success"
+                                        *ngIf="
+                                            request.pack.checkedProductsCount == request.pack.products.length &&
+                                            request.pack.checkedServicesCount == request.pack.services.length
+                                        "
+                                        ngbPanelToggle
+                                        (click)="acceptRequest(request.id, request.pack.repairShopPercent)"
+                                    >
+                                        تایید
+                                    </button>
+                                    <button
+                                        [disabled]="true"
+                                        type="button"
+                                        class="button-basic button-disabled"
+                                        *ngIf="
+                                            request.pack.checkedProductsCount != request.pack.products.length ||
+                                            request.pack.checkedServicesCount != request.pack.services.length
+                                        "
+                                    >
+                                        تایید
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+
+    <ng-template #canceled let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h6 class="modal-title">توضیح دلیل لغو</h6>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="orange-color cancel-warning">
+                کارشناس محترم رد کردن سرویس امتیاز منفی داشته و کنسل کردن سرویس بیش از ۳ مرتبه در ماه موجب قطع همکاری هپی کار با تعمیرگاه
+                خواهد شد
+            </p>
+            <p class="orange-color cancel-warning">لطفا علت را بیان کنید:</p>
+            <ul class="reasons" *ngIf="!showInput">
+                <li (click)="description = cancelReasons[0]; dismissRequest(5)">{{ cancelReasons[0] }}</li>
+                <li (click)="description = cancelReasons[1]; dismissRequest(5)">{{ cancelReasons[1] }}</li>
+                <li (click)="description = cancelReasons[2]; dismissRequest(5)">{{ cancelReasons[2] }}</li>
+                <li (click)="showInput = true">{{ cancelReasons[3] }}</li>
+            </ul>
+            <textarea
+                *ngIf="showInput"
+                placeholder="دلیل لغو درخواست"
+                class="round-text-area"
+                rows="4"
+                name="note"
+                [(ngModel)]="description"
+            >
+            </textarea>
+        </div>
+        <div class="modal-footer">
+            <div class="col-5">
+                <button type="button" class="button-basic button-danger" (click)="close()">لغو</button>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <button type="button" class="button-basic button-success" (click)="dismissRequest(5)">تایید</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

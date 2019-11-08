@@ -1,0 +1,260 @@
+@import "../../../../styles/common-styles";
+
+.card {
+    background-color: #333 !important;
+}
+
+.request-collapse-head {
+    padding-right: 10px;
+    padding-left: 10px;
+
+    p {
+        direction: rtl;
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .col {
+        padding: 0px;
+
+        p {
+            text-align: right;
+        }
+    }
+}
+
+.card-body-request {
+    padding: 25px;
+    background: #333;
+}
+
+.card-header {
+    background: #333;
+    padding: 0px;
+}
+
+.float-right {
+    svg-icon {
+        margin-left: 10px;
+    }
+}
+
+.car-img{
+    max-width: 80px;
+    padding: 5px;
+}
+
+.remain-time {
+    direction: ltr !important;
+}
+
+.request-notice {
+    color: $white-color;
+    text-align: center;
+    font-size: 12px;
+    direction: rtl;
+}
+
+.requested-services-text {
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+    direction: rtl;
+}
+
+.request-text {
+    color: $white-color;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.request-box {
+    border-radius: 30px;
+    background-color: #777;
+
+    svg-icon {
+        margin-top: 8px;
+    }
+
+    margin-bottom: 20px;
+}
+
+.request-price {
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: left;
+}
+
+.repair-shop-cost {
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: right;
+}
+
+.customer-payment {
+    text-align: left !important;
+}
+
+.arrow-down-base {
+    margin-left: 10px;
+}
+
+.total-cost-box {
+    border-radius: 30px;
+    background-color: #555;
+    margin-top: 20px;
+}
+
+.accept-request-box {
+    margin-top: 20px;
+
+    h4 {
+        color: $orange-color;
+        text-align: center;
+    }
+}
+
+.button-success, .button-disabled {
+    float: right;
+}
+
+///////////////////////////toggle-button
+app-toggle-button {
+    margin-top: 13px;
+}
+
+//////////////////////////range slider
+
+::ng-deep {
+    .custom-slider .ng5-slider .ng5-slider-bar {
+        background: $orange-color;
+        height: 2px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-selection {
+        background: orange;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-pointer {
+        width: 8px;
+        height: 16px;
+        top: auto; /* to remove the default positioning */
+        bottom: 0;
+        background-color: #aaaaaa;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-pointer:after {
+        display: none;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-bubble {
+        bottom: 14px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-limit {
+        font-weight: bold;
+        color: orange;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-tick {
+        width: 1px;
+        height: 10px;
+        margin-left: 4px;
+        border-radius: 0;
+        background: $orange-color;
+        top: -1px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+        background: orange;
+    }
+
+    .ng5-slider .ng5-slider-bubble.ng5-slider-limit {
+        color: #bbb !important;
+    }
+
+    .ng5-slider .ng5-slider-bubble {
+        color: #bbb !important;
+    }
+}
+
+strong {
+    direction: rtl;
+}
+
+.title-bar {
+    width: 100%;
+
+    strong {
+        direction: rtl;
+    }
+}
+
+.fill-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+    float: right;
+
+    img {
+        flex-shrink: 0;
+        width: 100%;
+    }
+
+    svg-icon {
+        float: right;
+        margin-top: -10px;
+    }
+}
+
+.green-back {
+    background-color: #0ead09 !important;
+}
+
+.green-border{
+
+    border: 2px solid #0ead09 !important;
+    margin: -12px -20px;
+    padding: 10px;
+
+}
+
+
+.cancel-warning{
+    text-align: center;
+    direction: rtl;
+}
+
+.reasons{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    li{
+        text-align: center;
+        margin: 5px;
+        width: 100%;
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 50px;
+        background: linear-gradient(270deg, rgba(255,193,7,1) 0%, rgba(253,126,20,1) 100%);
+        color: white;
+    }
+}

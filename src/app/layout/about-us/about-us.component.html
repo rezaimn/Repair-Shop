@@ -1,0 +1,53 @@
+<div [@routerTransition]>
+
+    <div class="home-slider">
+        <div class="container ">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let slide of imageSources">
+                    <ng-template carouselSlide [id]="slide?.id">
+                        <a [href]="slide.url" target="_blank">
+                            <img [src]="environment.imageUrl+slide?.image" [alt]="slide?.title" [title]="slide?.title">
+                        </a>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+    </div>
+    <div class="row flex-row-reverse">
+        <div class="col col-6 social-box " *ngFor="let social of socials">
+            <div class="socials">
+                <a [ngClass]="{'disabled':!social.activeted}" [href]="social.url" target="_blank" >
+                    <span class="float-left">
+                        <!--<img [src]="environment.imageUrl">-->
+                        <i *ngIf="social?.name === 'telegram'" class="fa fa-2x fa-telegram orange-color"></i>
+                        <i *ngIf="social?.name === 'instagram'" class="fa fa-2x fa-instagram orange-color"></i>
+                        <i *ngIf="social?.name != 'instagram' && social?.name != 'telegram'" class="fa fa-2x fa-user-plus orange-color"></i>
+                    </span>
+                    <span class="float-right">
+                        <p>{{social.name}}</p>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngFor="let phone of phones">
+        <div class="phone ">
+            <h6 class="float-right phone-title">
+                {{phone.name}}
+            </h6>
+            <p class="phone-desc">{{phone.description}}</p>
+            <div class="center-element">
+                <span>
+                   <p class="phone-number">
+                       {{phone.phoneNumber}}
+                   </p>
+                </span>
+                <span>
+                    <svg-icon src="../../../assets/images/svg/phone.svg" class="float-right  "
+                       [svgStyle]="{'height.px':16,'width.px':16,'fill':'#fff'}"></svg-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+

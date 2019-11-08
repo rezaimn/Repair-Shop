@@ -1,0 +1,53 @@
+.main-panel-svg-container {
+    margin: 8px 0 8px 0;
+    padding: 15px;
+    border-radius: 2vh;
+    background: #333;
+
+    p {
+        color: #fff;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+.option-list-base {
+}
+
+.home-slider {
+    width: 100%;
+    margin-top: 20px;
+    .container {
+        .col-12 {
+            height: 100%;
+            padding: 6px;
+        }
+    }
+}
+
+.owl-carousel .owl-item img {
+    height: 20vh;
+}
+.first-div-left {
+    padding-left: 16px;
+    padding-right: 8px;
+}
+.first-div-right {
+    padding-left: 8px;
+    padding-right: 16px;
+}
+.second-div-left {
+    padding-left: 16px;
+    padding-right: 8px;
+}
+.second-div-right {
+    padding-left: 8px;
+    padding-right: 16px;
+}
+
+.position-top-right {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}

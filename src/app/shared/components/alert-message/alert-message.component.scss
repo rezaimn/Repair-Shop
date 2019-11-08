@@ -1,0 +1,12 @@
+@import "../../../../styles/common-styles";
+:host{
+  position: fixed;
+  bottom: 70px;
+  left: 2.5%;
+  width:95% ;
+  z-index: 10000;
+}
+.alert-dismissible{
+    direction: rtl;
+    text-align: right;
+}

@@ -1,0 +1,79 @@
+<div [@routerTransition]>
+    <div class="container option-list-base">
+        <div class="row home-svg-base">
+            <div class="col-6 first-div-left">
+                <div class="main-panel-svg-container " (click)="goToRoute('/dashboard/requests')">
+                    <svg-icon
+                        src="../../../assets/images/svg/requests.svg"
+                        [svgStyle]="{ 'height.px': 80, 'width.%': 100, fill: '#ff9917' }"
+                    ></svg-icon>
+                    <p>
+                        درخواست ها
+                    </p>
+                    <span *ngIf="dataService.newRequestCount+dataService.pendingRequestCount > 0"
+                          class="badge badge-success position-top-right">{{dataService.newRequestCount+dataService.pendingRequestCount }}</span>
+                </div>
+            </div>
+            <div class="col-6 first-div-right">
+                <div class="main-panel-svg-container " (click)="goToRoute('/dashboard/in-process')">
+                    <svg-icon
+                        src="../../../assets/images/svg/in_progress.svg"
+                        [svgStyle]="{ 'height.px': 80, 'width.%': 100, fill: '#ff9917' }"
+                    ></svg-icon>
+                    <p>
+                        در دست اقدام
+                    </p>
+                    <span *ngIf="dataService.acceptedRequestCount > 0"
+                          class="badge badge-success position-top-right">{{ dataService.acceptedRequestCount }}</span>
+                </div>
+            </div>
+            <div class="col-6 second-div-left">
+                <div class="main-panel-svg-container " (click)="goToRoute('/dashboard/shop')">
+                    <svg-icon
+                        src="../../../assets/images/svg/store.svg"
+                        [svgStyle]="{ 'height.px': 80, 'width.%': 100, fill: '#ff9917' }"
+                    ></svg-icon>
+                    <p>
+                        فروشگاه
+                    </p>
+                </div>
+            </div>
+            <div class="col-6 second-div-right">
+                <div class="main-panel-svg-container " (click)="goToRoute('/dashboard/wallet')">
+                    <svg-icon
+                        src="../../../assets/images/svg/wallet.svg"
+                        [svgStyle]="{ 'height.px': 80, 'width.%': 100, fill: '#ff9917' }"
+                    ></svg-icon>
+                    <p>
+                        کیف پول
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [@routerTransition]>
+        <div class="home-slider">
+            <div class="container ">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-container *ngFor="let slide of imageSources">
+                        <ng-template carouselSlide [id]="slide?.id">
+                            <a [href]="slide.url" target="_blank">
+                                <img [src]="environment.imageUrl + slide?.image" [alt]="slide?.title"
+                                     [title]="slide?.title"/>
+                            </a>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="row home-slider ">-->
+    <!--<div class="container">-->
+    <!--<div class="col-12">-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--</div>-->
+</div>

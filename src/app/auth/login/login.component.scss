@@ -1,0 +1,190 @@
+@import "../../../styles/common-styles";
+$topnav-background-color: #222;
+:host {
+    display: block;
+}
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: $topnav-background-color;
+    text-align: center;
+    color: #fff;
+    padding: 3em;
+    .col-lg-4 {
+        padding: 0;
+    }
+    .input-lg {
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 0;
+    }
+    .input-underline {
+        background: 0 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        color: #fff;
+        border-radius: 0;
+    }
+    .input-underline:focus {
+        border-bottom: 2px solid #fff;
+        box-shadow: none;
+    }
+    .rounded-btn {
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        color: rgba(255, 255, 255, 0.8);
+        background: $topnav-background-color;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        line-height: 40px;
+        padding: 0 25px;
+    }
+    .rounded-btn:hover,
+    .rounded-btn:focus,
+    .rounded-btn:active,
+    .rounded-btn:visited {
+        color: rgba(255, 255, 255, 1);
+        border: 2px solid rgba(255, 255, 255, 1);
+        outline: none;
+    }
+
+    h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        small {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .form-group {
+        padding: 8px 0;
+        input::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input:-moz-placeholder {
+            /* Firefox 18- */
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input::-moz-placeholder {
+            /* Firefox 19+ */
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+    }
+    .form-content {
+      padding: 40px 0 0;
+    }
+  .forgetLink{
+     color: rgba(255, 255, 255, 1);
+     cursor: pointer;
+  }
+}
+
+.login_text{
+    direction: rtl;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.phone-icon{
+    position: relative;
+    right: 40%;
+    top: -40px;
+}
+.button-warning , .button-disabled{
+    border: 2px solid #fff;
+    border-radius: 45px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    height: 46px;
+    min-width: 100%;
+}
+.form-check-label{
+    direction: rtl;
+    float: right;
+    margin-bottom: 20px;
+    input{
+        height: 20px;
+        width: 20px;
+    }
+    span{
+        margin-right: 36px;
+    }
+}
+.timer{
+    font-size: 20px;
+}
+.gap{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.login-foot{
+    margin-top: 20px;
+}
+.map-height{
+    height: 54vh;
+}
+.select-address-btn{
+    border-radius: 50px;
+    border: 2px solid #fff;
+    background-color: #28a745;
+    position: relative;
+    top: -64px;
+    left: -20px;
+    width: 46px;
+    height: 46px;
+    padding-top: 10px;
+    margin-bottom: -46px;
+}
+.map-modal{
+    padding: 0;
+}
+.round-text-area{
+    margin: 0;
+    font-size: 12px;
+    padding-left: 20px;
+
+}
+textarea :focus{
+        font-size: 12px!important;
+}
+.rules-modal{
+    color: #079bef;
+    cursor: pointer;
+}
+
+.form-check-input{
+    height: 22px;
+    width: 22px;
+}
+
+.login-btn{
+    margin-top: 20px;
+}
+.rules-body{
+    overflow-y: auto;
+    height: 60vh;
+}
+.rules-text{
+    color: $orange-color;
+    direction: rtl;
+    text-align: right;
+    font-size: 14px;
+}
+.check-rules{
+    margin-top: -5px;
+}

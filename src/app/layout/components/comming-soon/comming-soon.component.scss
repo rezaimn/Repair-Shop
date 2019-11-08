@@ -1,0 +1,23 @@
+.comming-soon {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+
+    .overlay {
+        background: #00000060;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .comming-soon-message {
+        position: relative;
+        color: white;
+        padding: 12px 24px;
+        background: linear-gradient(270deg, rgba(255,193,7,1) 0%, rgba(253,126,20,1) 100%);
+        border-radius: 8px;
+        font-size: 14px;
+    }
+}

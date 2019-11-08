@@ -1,0 +1,26 @@
+<div class="round-input ">
+    <div class="row">
+        <div class="col-input col-8 ">
+            <input
+                [disabled]="disabled"
+                [value]="value"
+                class="span-input"
+                [type]="type"
+                [placeholder]="placeholder"
+                (keyup)="setChanges($event)"
+            />
+            <svg-icon
+                *ngIf="icon != ''"
+                [src]="'../../../assets/images/svg/' + icon + '.svg'"
+                class="phone-icon"
+                [svgStyle]="{ 'height.px': 20, 'width.px': 20, fill: '#fff' }"
+            ></svg-icon>
+        </div>
+        <div class="col-input col-4">
+            <div class="title-box">
+                <p class="line-bar">|</p>
+                <span class="title-text">{{ title }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="round-input ">
+    <div class="row">
+        <div class=" col-8 col-input">
+            <select id="select" [name]="title" [(ngModel)]="selectedId" (ngModelChange)="setChanges(selectedId)">
+                <option [disabled]="true" ngValue="-1">{{ firstOption }}</option>
+                <option *ngFor="let option of options; let i = index" [ngValue]="i">{{ option.name }}</option>
+            </select>
+            <svg-icon
+                *ngIf="icon != ''"
+                [src]="'../../../assets/images/svg/' + icon + '.svg'"
+                class="phone-icon"
+                [svgStyle]="{ 'height.px': 20, 'width.px': 20, fill: '#fff' }"
+            ></svg-icon>
+        </div>
+        <div class="col-4 col-input">
+            <div class="title-box">
+                <p class="line-bar">|</p>
+                <span class="title-text">{{ title }}</span>
+            </div>
+        </div>
+    </div>
+</div>

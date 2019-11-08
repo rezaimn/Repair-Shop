@@ -1,0 +1,27 @@
+@import '../../../styles/common-styles';
+
+.comments {
+    margin-top: 8vh;
+
+    app-custom-input {
+        margin-bottom: 20px;
+    }
+
+    app-custom-select {
+        margin-bottom: 20px;
+    }
+}
+
+label {
+    margin-top: 16px;
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 0;
+}
+.button-basic {
+    width: 200px;
+}
+option {
+    width: 100%;
+}

@@ -1,0 +1,14 @@
+<app-header (sidebarToggled)="sidebarIsOpened($event)" ></app-header>
+<app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+
+<section class="main-container" [ngClass]="{collapsed: collapedSideBar}" (click)="closeSidebar()">
+    <app-alert-message ></app-alert-message>
+    <router-outlet></router-outlet>
+    <div [ngClass]="{'page-blur-while-sidebar-opened': sidebarIsOpen}">
+    </div>
+</section>
+
+
+<div class="loader-icon" *ngIf="loading">
+    <img src="assets/images/loading.gif"/>
+</div>

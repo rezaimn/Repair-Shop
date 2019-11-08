@@ -1,0 +1,228 @@
+@import "../../../../styles/common-styles";
+.request-collapse-head{
+    padding-right: 10px;
+    padding-left: 10px;
+    p{
+        direction: rtl;
+        width: 100%;
+        font-size: 13px;
+    }
+    .col{
+        padding: 0px;
+        p{
+            text-align: right;
+        }
+    }
+}
+
+.customer-payment{
+    text-align: left!important;
+}
+.arrow-down-base{
+    margin-left: 10px;
+}
+
+.card-header{
+    background-color: #333;
+    border-radius: 8px!important;
+}
+.vertical-line{
+    margin-top: -40px;
+}
+.customer-data{
+    margin-top: 30px;
+}
+.float-right{
+    svg-icon{
+        margin-left: 10px;
+    }
+}
+.customer-name{
+    color: $white-color;
+    width: 100%;
+    text-align: right;
+    margin-right: 15px;
+}
+.remain-time{
+    direction: ltr!important;
+    text-align: right;
+}
+.request-notice{
+    color:$white-color;
+    text-align: center;
+    font-size: 12px;
+    direction: rtl;
+}
+.requested-services-text{
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+    direction: rtl;
+}
+.request-text{
+    color: $white-color;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.request-box{
+    border-radius: 30px;
+    background-color: #777;
+    svg-icon{
+        margin-top: 5px;
+    }
+    margin-bottom: 20px;
+}
+.request-price{
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: left;
+}
+.repair-shop-cost{
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: right;
+}
+.total-cost-box{
+    border-radius: 30px;
+    background-color: #777;
+    margin-top: 20px;
+}
+.accept-request-box{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    .col-4{
+        padding: 0px;
+    }
+    margin-top: 20px;
+    h4{
+        color: $orange-color;
+        text-align: center;
+    }
+}
+.car-img{
+    max-width: 80px;
+    padding: 5px;
+}
+.in-process-date{
+    color: $orange-color;
+    // float: left;
+    margin-right: 5px;
+}
+.v-line-base{
+    width: 100%;
+}
+.v-line-base2{
+    width: 100%;
+    margin-top: -30px;
+}
+///////////////////////////toggle-button
+app-toggle-button{
+    margin-top: 10px;
+}
+.card-black{
+    position: absolute;
+    top: 172px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000!important;
+}
+.second-card{
+    margin-top: 30px;
+    background-color: #333;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    .row{
+        width: 100%;
+        margin: 0;
+    }
+}
+.third-card{
+    margin-top: 30px;
+    background-color: #333;
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+.button-success{
+    float: left;
+    margin-left: 10px;
+}
+.button-danger{
+    float: right;
+    margin-right: 10px;
+}
+.button-basic{
+    width: 90px;
+}
+.map-button{
+    .button-basic{
+        width: 120px!important;
+    }
+}
+.center-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ngb-panel{
+    margin-bottom: 15px;
+}
+.left-text{
+    text-align: left;
+}
+.right-text{
+    text-align: right;
+}
+.fill-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+    float: right;
+    img{
+        flex-shrink: 0;
+        width: 100%;
+    }
+    svg-icon{
+        float: right;
+        margin-top: -10px;
+    }
+}
+
+.cancel-warning{
+    text-align: center;
+    direction: rtl;
+}
+
+.reasons{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    li{
+        text-align: center;
+        margin: 5px;
+        width: 100%;
+        font-size: 14px;
+        padding: 6px 12px;
+        border-radius: 50px;
+        background: linear-gradient(270deg, rgba(255,193,7,1) 0%, rgba(253,126,20,1) 100%);
+        color: white;
+    }
+}

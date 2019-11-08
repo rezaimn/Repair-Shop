@@ -1,0 +1,11 @@
+
+/**
+ * animation delay mixin
+ */
+@mixin animation-delay($delay){
+  -webkit-transition: all $delay ease-in-out;
+  -moz-transition: all $delay ease-in-out;
+  -ms-transition: all $delay ease-in-out;
+  -o-transition: all $delay ease-in-out;
+  transition: all $delay ease-in-out;
+}

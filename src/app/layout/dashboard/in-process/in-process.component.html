@@ -1,0 +1,209 @@
+<div [@routerTransition]>
+    <div class="container">
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel [id]="'ngb-panel-' + inProcess.id" *ngFor="let inProcess of inProcessList; let i = index">
+                <ng-template ngbPanelHeader let-opened="opened">
+                    <div class="row flex-row-reverse">
+                        <div class="col-12 d-flex flex-row-reverse">
+                            <svg-icon
+                                src="../../../assets/images/svg/time-cal.svg"
+                                class="svg-orange float-right"
+                                [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#ff9917' }"
+                            ></svg-icon>
+                            <p class="in-process-date" style="direction: rtl;">
+                                {{ (inProcess.pack.preferred_date | jalaliDate) + ' ' + timeMap[inProcess.pack.preferred_time_frame] }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row request-collapse-head">
+                        <p class="white-color remain-time">
+                            {{
+                                inProcess.pack.buyer_car.brand.brand +
+                                    ' ' +
+                                    inProcess.pack.buyer_car.carModel.carModel +
+                                    ' ' +
+                                    inProcess.pack.buyer_car.carType.carType
+                            }}
+                        </p>
+                        <div class="col col-4">
+                            <p class="white-color customer-payment">{{ inProcess.pack.total_cost }} تومان</p>
+                            <span class="float-left">
+                                <p class="orange-color">جزئیات</p>
+                            </span>
+                            <span class="float-left arrow-down-base">
+                                <button ngbPanelToggle class="btn btn-link p-0">
+                                    <svg-icon
+                                        src="../../../assets/images/svg/down-arrow.svg"
+                                        class="svg-orange"
+                                        [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#ff9917' }"
+                                    ></svg-icon>
+                                </button>
+                            </span>
+                        </div>
+                        <div class=" col col-5">
+                            <p class="white-color">قیمت کارشناس</p>
+                            <span class="float-right">
+                                <svg-icon
+                                    src="../../../assets/images/svg/money.svg"
+                                    class="svg-orange"
+                                    [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#ff9917' }"
+                                ></svg-icon>
+                            </span>
+                            <span>
+                                <p class="orange-color">{{ inProcess.pack.paid_cost }} تومان</p>
+                            </span>
+                        </div>
+                        <div class=" col col-3 ">
+                            <div>
+                                <svg-icon
+                                    *ngIf="!inProcess.pack.buyer_car.imageUrl"
+                                    src="../../../assets/images/svg/taxi.svg"
+                                    class="svg-orange"
+                                    [svgStyle]="{ 'height.px': 60, 'width.px': 60, fill: '#fff' }"
+                                ></svg-icon>
+                                <img
+                                    *ngIf="inProcess.pack.buyer_car.imageUrl"
+                                    class="car-img"
+                                    [src]="environment.imageUrl + inProcess.pack.buyer_car.imageUrl"
+                                    alt="عکس خودرو"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="v-line-base">
+                        <svg-icon
+                            src="../../../assets/images/svg/v-line.svg"
+                            class="float-right svg-orange vertical-line"
+                            [svgStyle]="{ 'height.px': 50, 'width.px': 30, fill: '#ff9917' }"
+                        ></svg-icon>
+                    </div>
+
+                    <div class=" second-card">
+                        <p class="customer-name float-right">{{ inProcess.pack.buyer.name }}</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <!--<p class="left-text white-color">فراهم نشده</p>-->
+                            </div>
+                            <div class="col-6">
+                                <p class="orange-color right-text">{{ inProcess.pack.buyer.phone }}</p>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="left-text orange-color">خدمات</h6>
+                                <p class="left-text white-color" *ngFor="let service of inProcess.pack.services; let j = index">
+                                    {{ service.name + ' ' + service.description }}
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="right-text orange-color">محصولات</h6>
+                                <p class="right-text white-color " *ngFor="let product of inProcess.pack.products; let j = index">
+                                    {{ product.product.general_name }}
+                                </p>
+                            </div>
+                            <div class="col-12 center-button map-button">
+                                <!--<button type="button" class="button-basic button-warning">آدرس در نقشه</button>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="v-line-base2">
+                        <svg-icon
+                            src="../../../assets/images/svg/v-line.svg"
+                            class="float-right svg-orange vertical-line"
+                            [svgStyle]="{ 'height.px': 50, 'width.px': 30, fill: '#ff9917' }"
+                        ></svg-icon>
+                    </div>
+
+                    <div class=" third-card">
+                        <div class="row accept-request-box">
+                            <div class="col-4">
+                                <button
+                                    type="button"
+                                    class="button-basic button-success"
+                                    (click)="open(done); setSelectedId(inProcess.pack.id)"
+                                >
+                                    انجام شد
+                                </button>
+                            </div>
+                            <div class="col-4 center-button">
+                                <button type="button" class="button-basic button-warning" (click)="setInProcessStatus(4)">
+                                    مشتری نیامد
+                                </button>
+                            </div>
+
+                            <div class="col-4">
+                                <button
+                                    type="button"
+                                    class="button-basic button-danger"
+                                    (click)="open(canceled); setSelectedId(inProcess.pack.id)"
+                                >
+                                    لغو میکنم
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+    <ng-template #done let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h6 class="modal-title">ورود کد پایان کار</h6>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-custom-input title="کد پایان" placeholder=" ورود کد پایان" type="number" (textChanged)="finishingCode = $event">
+            </app-custom-input>
+        </div>
+        <div class="modal-footer">
+            <div class="col-5">
+                <button type="button" class="button-basic button-danger" (click)="close()">لغو</button>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <button type="button" class="button-basic button-success" (click)="setInProcessStatus(3)">تایید</button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #canceled let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h6 class="modal-title">توضیح دلیل لغو</h6>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p class="orange-color cancel-warning">
+                کارشناس محترم رد کردن سرویس امتیاز منفی داشته و کنسل کردن سرویس بیش از ۳ مرتبه در ماه موجب قطع همکاری هپی کار با تعمیرگاه
+                خواهد شد
+            </p>
+            <p class="orange-color cancel-warning">لطفا علت را بیان کنید:</p>
+            <ul class="reasons" *ngIf="!showInput">
+                <li (click)="description = cancelReasons[0]; setInProcessStatus(5)">{{ cancelReasons[0] }}</li>
+                <li (click)="description = cancelReasons[1]; setInProcessStatus(5)">{{ cancelReasons[1] }}</li>
+                <li (click)="description = cancelReasons[2]; setInProcessStatus(5)">{{ cancelReasons[2] }}</li>
+                <li (click)="showInput = true">{{ cancelReasons[3] }}</li>
+            </ul>
+            <textarea
+                *ngIf="showInput"
+                placeholder="دلیل لغو درخواست"
+                class="round-text-area"
+                rows="4"
+                name="note"
+                [(ngModel)]="description"
+            >
+            </textarea>
+        </div>
+        <div class="modal-footer">
+            <div class="col-5">
+                <button type="button" class="button-basic button-danger" (click)="close()">لغو</button>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <button type="button" class="button-basic button-success" (click)="setInProcessStatus(5)">تایید</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

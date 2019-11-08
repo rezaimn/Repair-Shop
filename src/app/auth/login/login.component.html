@@ -1,0 +1,147 @@
+<div class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 col-lg-4">
+            <img src="assets/images/splash/splash_logo.png" width="125px"/>
+            <p class="login_text">کد فعال سازی از طریق پیامک برای شما ارسال گردید. لطفا کد مورد نظر را در زیر وارد
+                نمایید. </p>
+            <form (ngSubmit)="onLogin()" novalidate>
+                <div *ngIf="!firstLogin">
+                    <app-custom-input [disabled]=true [value]="phoneNumber" icon="phone" title="شماره همراه"
+                                      placeholder="شماره همراه" (textChanged)="phoneNumber=$event">
+
+                    </app-custom-input>
+
+                </div>
+                <div>
+                    <app-custom-input icon="phone" title="کد" placeholder="کد فعال سازی"
+                                      (textChanged)="activationCode=$event">
+
+                    </app-custom-input>
+
+
+                </div>
+                <div *ngIf="firstLogin">
+                    <app-custom-input id="check-box" icon="add-user" title="نام تعمیرگاه" placeholder="نام تعمیرگاه"
+                                      (textChanged)="shopName=$event">
+
+                    </app-custom-input>
+                    <textarea  [disabled]="!enableAddressBox" placeholder="آدرس..." class="round-text-area" rows="3"
+                              name="address" [(ngModel)]="address">
+
+                    </textarea>
+                    <div class="select-address-btn" (click)="open(select_address)">
+                        <svg-icon src="assets/images/svg/pin.svg"
+                                  [svgStyle]="{'height.px':20,'width.px':20,'fill':'#fff'}"></svg-icon>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="float-right check-rules">
+                        <input
+                        [(ngModel)]="privacyCheck"
+                        class="form-check-input"
+                        type="checkbox"
+                        name="remember">
+                    </span>
+                    <span class="rules-modal" (click)="getRules();open(rulesModal)">قوانین برنامه هپی کار را می پذیرم</span>
+
+                </div>
+
+                <button class="button-basic button-warning login-btn" type="submit" *ngIf="((firstLogin && address.length>0) || !firstLogin) && activationCode.length>0 && privacyCheck">ورود به برنامه</button>
+                <button class="button-basic button-disabled login-btn" *ngIf="((!firstLogin || address.length==0) && firstLogin) || activationCode.length==0 || !privacyCheck" >ورود به برنامه</button>
+                <div class="row login-foot">
+                    <div class="col-4">
+                        <span class="float-right">
+                            <p [routerLink]="['/auth/verify-code-request']" class="white-color">
+                                تغییر شماره
+                            </p>
+                        </span>
+                    </div>
+                    <div class="col-4">
+                        <p class="gap ">|</p>
+                    </div>
+                    <div class="col-4">
+                         <span *ngIf="timer>0" class="orange-color float-left timer">
+                            {{timer}}
+                         </span>
+                        <span *ngIf="timer==0" (click)="sendVerifyCode()" class="float-left">
+                             ارسال مجدد
+                          </span>
+                    </div>
+                </div>
+
+
+                &nbsp;
+            </form>
+        </div>
+    </div>
+</div>
+<ng-template #select_address let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h6 class="modal-title">انتخاب آدرس روی نقشه</h6>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body map-modal">
+        <agm-map class="map-height"
+                 [latitude]="lat"
+                 [longitude]="lng"
+                 [zoom]="zoom"
+                 [disableDefaultUI]="false"
+                 [zoomControl]="true"
+                 (mapClick)="mapClicked($event)">
+
+            <agm-marker
+                [iconUrl]="'assets/images/happy-car.png'"
+                [latitude]="marker?.lat"
+                [longitude]="marker?.lng"
+                [label]="marker?.label"
+                [markerDraggable]="marker?.draggable"
+                (dragEnd)="markerDragEnd($event)">
+
+                <agm-info-window>
+                    <strong>آدرس تعمیرگاه</strong>
+                </agm-info-window>
+
+            </agm-marker>
+
+        </agm-map>
+    </div>
+    <div class="modal-footer">
+        <div class="col-5">
+            <button type="button" class="button-basic button-danger" (click)="close()">لغو</button>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-5">
+            <button type="button" class="button-basic button-success" (click)="selectAddress()">تایید</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #rulesModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{rules.title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body rules-body">
+        <p class="rules-text">
+            {{rules.regulationText}}
+        </p>
+    </div>
+    <div class="modal-footer">
+        <div class="col-5">
+            <button type="button" class="button-basic button-danger" (click)="close();cancelRules()">لغو</button>
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-5">
+            <button type="button" class="button-basic button-success" (click)="acceptRules()">تایید</button>
+        </div>
+    </div>
+</ng-template>

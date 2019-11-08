@@ -1,0 +1,39 @@
+$topnav-background-color: #222;
+:host {
+    display: block;
+}
+.start-page{
+    margin-top:10vh;
+    padding-bottom: 10vh;
+}
+body,html{
+    overflow-x: hidden;
+}
+.start-page-slider{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.slider-title{
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    direction: rtl;
+}
+.slider-text{
+    text-align: center;
+    direction: rtl;
+    font-size: 14px;
+    padding: 5px;
+    margin: 0px;
+}
+.center-button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .button-warning{
+        width: 180px;
+    }
+}

@@ -1,0 +1,36 @@
+
+/**
+ * shared styles between all buttons
+ */
+.button-basic  {
+  border: 1px solid #eee!important;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  height: 46px;
+  min-width: 80px;
+}
+
+.button-success{
+  @extend .button-basic;
+  @extend .btn-success;
+}
+.button-danger{
+  @extend .button-basic;
+  @extend .btn-danger;
+}
+.button-primary{
+  @extend .button-basic;
+  @extend .btn-primary;
+}
+
+.button-warning{
+    @extend .button-basic;
+    @extend .btn-warning;
+}
+.button-disabled{
+  @extend .button-basic;
+  @extend .btn-secondary;
+}

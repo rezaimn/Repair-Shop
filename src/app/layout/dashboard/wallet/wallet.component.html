@@ -1,0 +1,112 @@
+<div [@routerTransition]>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row request-collapse-head">
+                    <div class="col col-4">
+                        <div class="add-credit" (click)="open(charge_wallet)">
+                            <svg-icon
+                                src="../../../assets/images/svg/add.svg"
+                                class="float-right"
+                                [svgStyle]="{ 'height.px': 24, 'width.px': 24, fill: '#fff' }"
+                            ></svg-icon>
+                        </div>
+                    </div>
+                    <div class="col col-4">
+                        <p class="white-color">
+                            موجودی حساب
+                        </p>
+
+                        <span>
+                            <h6 class="orange-color balance">{{ balance }} تومان</h6>
+                        </span>
+                        <span>
+                            <svg-icon
+                                src="../../../assets/images/svg/account.svg"
+                                class="float-right wallet-star"
+                                [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#fff' }"
+                            ></svg-icon>
+                        </span>
+                    </div>
+                    <div class=" col col-4">
+                        <p class="white-color">
+                            مجموع امتیاز
+                        </p>
+                        <span>
+                            <h6 class="orange-color">3440</h6>
+                        </span>
+                        <span>
+                            <svg-icon
+                                src="../../../assets/images/svg/star.svg"
+                                class="float-right wallet-star"
+                                [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#fff' }"
+                            ></svg-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h6 class="white-color history-text">تاریخچه تراکنش ها</h6>
+        <div class="card" *ngFor="let transaction of transactions">
+            <div class="card-body">
+                <div class="row request-collapse-head">
+                    <div class="col col-6">
+                        <h6 class="orange-color transaction">{{ transaction?.amount }} تومان <span></span></h6>
+                        <span class="date-time-base">
+                            <p class="white-color date-time">
+                                {{ transaction?.created_at?.substr(0, 10) | jalaliDate }}
+                            </p>
+                        </span>
+                        <svg-icon
+                            src="../../../assets/images/svg/clock.svg"
+                            class="float-right notif-time"
+                            [svgStyle]="{ 'height.px': 16, 'width.px': 16, fill: '#fff' }"
+                        ></svg-icon>
+                    </div>
+                    <div class=" col col-6">
+                        <h6 class="white-color" style="direction: rtl;">
+                            {{
+                                transaction?.shopboughtpack?.buyer_car?.brand?.brand +
+                                    ' ' +
+                                    transaction?.shopboughtpack?.buyer_car?.carModel?.carModel +
+                                    ' ' +
+                                    transaction?.shopboughtpack?.buyer_car?.carType?.carType
+                            }}
+                        </h6>
+                        <br />
+                        <p class="white-color notif-text" style="direction: rtl;">
+                            <span *ngFor="let i of transaction?.shopboughtpack?.services">{{ i.name + ' ' + i.description }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #charge_wallet let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h6 class="modal-title">شارژ کیف پول</h6>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <app-custom-input
+                icon="money"
+                title="مبلغ شارژ"
+                placeholder=" مبلغ به تومان"
+                type="number"
+                (textChanged)="charge_amount = $event"
+            >
+            </app-custom-input>
+        </div>
+        <div class="modal-footer">
+            <div class="col-5">
+                <button type="button" class="button-basic button-danger" (click)="close()">لغو</button>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-5">
+                <button type="button" class="button-basic button-success" (click)="chargeWallet()">تایید</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

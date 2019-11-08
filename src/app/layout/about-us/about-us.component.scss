@@ -1,0 +1,65 @@
+@import "../../../styles/common-styles";
+.home-slider {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .container {
+        .col-12 {
+            height: 100%;
+            padding: 6px;
+        }
+    }
+}
+.socials{
+    background: #333;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    p{
+        font-size: 14px;
+        margin-top: .8rem;
+        margin-right: .8rem;
+    }
+    span{
+        i{
+            margin: 10px;
+        }
+
+    }
+}
+.phone{
+    background: #333;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    margin: 15px;
+    padding: 10px;
+    p{
+        text-align: center;
+    }
+    svg-icon{
+        margin-left: 10px;
+        margin-top: -12px;
+    }
+    h6{
+        width: 100%;
+        text-align: right;
+    }
+}
+.row{
+    margin: 0;
+}
+.social-box{
+    margin-bottom: 20px;
+}
+.phone-title{
+   color: $orange-color;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.phone-desc{
+    color:$white-color;
+}
+.phone-number{
+    color:$white-color;
+}

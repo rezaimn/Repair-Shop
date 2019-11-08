@@ -1,0 +1,74 @@
+<div [@routerTransition]>
+    <div class="container">
+        <ngb-accordion #acc="ngbAccordion" >
+            <ngb-panel id="'ngb-panel-'+inProcess.id" *ngFor="let service of servicesList;let i=index">
+                <ng-template ngbPanelHeader let-opened="opened" >
+                    <div class="row request-collapse-head">
+                        <div class="col col-4">
+                            <p class="orange-color customer-payment">{{service.total_cost}} تومان</p>
+                            <span class="float-left">
+                                 <p class="orange-color">جزئیات</p>
+                             </span>
+                            <span class="float-left arrow-down-base">
+                           <button ngbPanelToggle class="btn btn-link p-0">
+                              <svg-icon  src="../../../assets/images/svg/down-arrow.svg" class="svg-orange"
+                                         [svgStyle]="{'height.px':16,'width.px':16,'fill':'#ff9917'}"></svg-icon>
+                           </button>
+                        </span>
+                        </div>
+                        <div class=" col col-5">
+                            <h6 class="white-color">{{service.buyer_car.brand.brand+' '+service.buyer_car.carModel.carModel+' '+service.buyer_car.carType.carType}}</h6>
+                              <span class="float-right">
+                               <svg-icon src="../../../assets/images/svg/time-cal.svg" class="svg-orange"
+                                  [svgStyle]="{'height.px':16,'width.px':16,'fill':'#ff9917'}"></svg-icon>
+                              </span>
+                              <span>
+                                 <p class="orange-color"> {{service.preferred_date|jalaliDate}}</p>
+                             </span>
+                            <button class="button-basic button-warning" *ngIf="service.current_status.status==0">انتظار</button>
+                            <button class="button-basic button-disabled" *ngIf="service.current_status.status==1">پیدا نشد</button>
+                            <button class="button-basic button-primary" *ngIf="service.current_status.status==2">پذیرش شده</button>
+                            <button class="button-basic button-success" *ngIf="service.current_status.status==3">انجام شده</button>
+                            <button class="button-basic button-danger" *ngIf="service.current_status.status==4">کنسل مشتری</button>
+                            <button class="button-basic button-danger" *ngIf="service.current_status.status==5">کنسل من</button>
+                        </div>
+                        <div class=" col col-3 ">
+                            <svg-icon src="../../../assets/images/svg/taxi.svg" class="float-right"
+                                      [svgStyle]="{'height.px':60,'width.px':60,'fill':'#fff'}"></svg-icon>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="card-body-request">
+                        <div class=" second-card">
+                            <p class="customer-name">{{service?.buyer?.name}}</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <!--<p class="left-text white-color">فراهم نشده</p>-->
+                                </div>
+                                <div class="col-6">
+                                    <p class="orange-color right-text">{{service?.buyer?.phone}}</p>
+                                </div>
+                                <div class="col-6" >
+                                    <h6 class="left-text white-color">خدمات</h6>
+                                    <p class="left-text white-color" *ngFor="let service of service.services;let j=index">
+                                        {{service?.name}}
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="right-text white-color">محصولات</h6>
+                                    <p class="right-text white-color " *ngFor="let product of service.products;let j=index">
+                                        {{product?.product?.special_name}}
+                                    </p>
+                                </div>
+                                <div class="col-12 center-button map-button">
+                                    <!--<button type="button" class="button-basic button-warning">آدرس در نقشه</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div>

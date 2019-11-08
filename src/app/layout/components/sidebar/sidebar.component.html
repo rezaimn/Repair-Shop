@@ -1,0 +1,79 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="user-info">
+        <img src="assets/images/start-page/splash_intro_3.png" />
+        <span class="user-name">
+            <p>test</p>
+            <span class="user-rate">
+                <ngb-rating [(rate)]="currentRate" [readonly]="true" max="5">
+                    <ng-template let-fill="fill" let-index="index">
+                        <span class="star" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+                        </span>
+                    </ng-template>
+                </ngb-rating>
+                <span class="rate-count">0 نظر</span>
+            </span>
+        </span>
+    </div>
+    <div class="list-group">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/dashboard.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>خانه</span>
+        </a>
+        <a [routerLink]="['/time-schedule']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+
+            <svg-icon src="../../../assets/images/svg/calendar.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>برنامه زمانی</span>
+        </a>
+        <a [routerLink]="['/services-list']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+
+            <svg-icon src="../../../assets/images/svg/taxi.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>لیست سرویس ها</span>
+            <span *ngIf="dataService.acceptedRequestCount > 0"
+                  class="badge badge-success position-top-right">{{ dataService.acceptedRequestCount }}</span>
+        </a>
+        <a [routerLink]="['/buy-list']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/list.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>لیست خرید ها</span>
+        </a>
+        <a [routerLink]="['/comments']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/lamp.svg"
+                      [svgStyle]="{'height.px':28,'width.px':28,'fill':'#fff'}"></svg-icon>
+            <span>پیشنهادات</span>
+        </a>
+        <a href="tel:02135000025" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/phone.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>پشتیبانی</span>
+        </a>
+        <a [routerLink]="['/about-us']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/mail.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>درباره ما</span>
+        </a>
+        <a [routerLink]="['/shopping-basket']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <svg-icon src="../../../assets/images/svg/basket.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>سبد خرید</span>
+        </a>
+        <a  class="list-group-item logout" (click)="logOut()">
+            <svg-icon src="../../../assets/images/svg/exit.svg"
+                      [svgStyle]="{'height.px':24,'width.px':24,'fill':'#fff'}"></svg-icon>
+            <span>خروج از حساب</span>
+        </a>
+        <a  class="list-group-item" >
+            <app-toggle-button class="float-left" [status]="status" [okText]="'فعال'" [id]="'1'"   (changed)="setUserStatus($event)">
+            </app-toggle-button>
+            <span *ngIf="status">فعال</span>
+            <span *ngIf="!status">غیر فعال</span>
+        </a>
+    </div>
+    <!--<div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">-->
+        <!--<i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;-->
+        <!--<span>Collapse Sidebar</span>-->
+    <!--</div>-->
+</nav>

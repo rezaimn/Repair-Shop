@@ -1,0 +1,125 @@
+@import "bootstrap/bootstrap";
+@import "spinner";
+@import "utils";
+@import "rtl";
+@import "responsive";
+@import "../assets/style/mixins";
+@import "../assets/style/colors";
+@import "../assets/style/placeholders";
+@import "../assets/style/variables";
+@import "../assets/style/shared-elements";
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+input,select,textarea:focus{
+     background-color: transparent!important;
+    border-color: #fff!important;
+    color: #fff;
+    outline: 0;
+    box-shadow: none!important;
+}
+button:focus{
+    outline: 0;
+}
+input:disabled{
+    background-color: transparent!important;
+}
+option{
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    i{
+        color: $white-color;
+    }
+
+}
+a{
+    color: $white-color;
+}
+.center-element{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box{
+    position: fixed;
+    top: 58px;
+    width: calc(100% - 30px);
+    left: 15px;
+    background: #000;
+    height: 76px;
+    z-index: 990;
+    .search-icon{
+        position: relative;
+        left: 15%;
+        top: -32px;
+    }
+    p{
+        position: relative;
+        left: 11%;
+        top: -64px;
+        color: $white-color;
+        width: fit-content;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .list-icon{
+        position: relative;
+        left: 5%;
+        top: -104px;
+    }
+}
+.modal-dialog{
+    margin-top: 20%;
+    background: #222;
+}
+.modal-content{
+    background: #222222;
+    border: 1px solid rgba(255,255,255,0.6);
+    .modal-title{
+        color: #ff8d10 !important;
+        float: right;
+        text-align: right;
+        direction: rtl;
+        width: 100%;
+
+    }
+    .close{
+        span{
+            color: #fff;
+        }
+    }
+    .modal-header{
+        border-bottom: 1px solid #8f9294;
+    }
+    .modal-footer{
+        border-top: 1px solid #8f9294;
+        .button-success{
+            float: left;
+        }
+        .button-danger{
+            float: right;
+        }
+    }
+
+
+}
+.round-text-area {
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    color: #eee;
+    background: transparent;
+    width: 100%;
+    margin: 15px 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    text-align: right;
+    direction: rtl;
+}

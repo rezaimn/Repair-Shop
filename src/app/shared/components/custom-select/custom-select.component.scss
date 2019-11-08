@@ -1,0 +1,77 @@
+@import "../../../../styles/common-styles";
+.round-input{
+    height: 48px;
+    border-radius: 30px;
+    border: 1px solid #aaa;
+    color: #eee;
+    background: transparent;
+    width: 100%;
+    margin:15px 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+.input-title{
+   float: right;
+   margin-top: 10px;
+}
+.line-bar{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.title-box{
+    // float: right;
+    width: 100%;
+    // margin-top: 10px;
+    display: flex;
+    height: 48px;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-text{
+    float: right;
+    // margin-top: 2px;
+    font-size: 14px;
+    // margin-right: 10px;
+}
+p{
+    width: fit-content;
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.col-3{
+    margin-top: 10px;
+}
+select{
+    width: 100%;
+    border: 0px !important;
+    text-align: right;
+    direction: rtl;
+    color: #eee;
+    margin-top: 8px;
+    font-size: 16px;
+    background: transparent;
+}
+.span-input{
+    float: right;
+    margin-top: 12px;
+}
+.row{
+    margin: 0;
+}
+svg-icon{
+    position: absolute;
+    left: 0px;
+    top: 12px;
+}
+option[selected]{
+    background: #aaaaaa;
+}
+.col{
+    padding: 0;
+}
+.col-input{
+    padding: 0;
+}

@@ -1,0 +1,19 @@
+<div [@routerTransition]>
+    <div class="container">
+        <div class="comments" >
+            <app-custom-input [value]="title"  title="موضوع پیام" placeholder="موضوع" (textChanged)="title=$event">
+            </app-custom-input>
+            <app-custom-select [selectedId]="selectedId" firstOption="انتخاب بخش"  [options]="subjects"  title="بخش مربوطه"  (textChanged)="selectedSubject=$event">
+            </app-custom-select>
+            <label class="float-right orange-color">اطلاعات بیشتر</label>
+            <br>
+            <textarea placeholder="توضیحات بیشتر..." class="round-text-area" rows="4" name="note" [(ngModel)]="messageText">
+
+      </textarea>
+            <div class="center-element">
+                <button class="button-basic button-success " (click)="sendComments()">ثبت نظر</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,193 @@
+@import "../../../../../styles/common-styles";
+.card-body{
+    background-color: #333!important;
+    margin: 16px;
+}
+.request-collapse-head{
+    padding-right: 10px;
+    padding-left: 10px;
+    p{
+        direction: rtl;
+        width: 100%;
+        font-size: 13px;
+    }
+    .col{
+        padding: 0px;
+        p{
+            text-align: right;
+        }
+        h6{
+            text-align: right;
+        }
+    }
+}
+.card-body-request{
+    padding:25px;
+    background: #333;
+}
+.card-header{
+    background: #333;
+}
+.float-right{
+    svg-icon{
+        margin-left: 10px;
+    }
+}
+.remain-time{
+    direction: ltr!important;
+}
+.request-notice{
+    color:$white-color;
+    text-align: center;
+    font-size: 12px;
+    direction: rtl;
+}
+.requested-services-text{
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+    direction: rtl;
+}
+.request-text{
+    color: $white-color;
+    font-size: 14px;
+    text-align: right;
+    direction: rtl;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.request-box{
+    border-radius: 30px;
+    background-color: #777;
+    svg-icon{
+        margin-top: 5px;
+    }
+    margin-bottom: 20px;
+}
+.request-price{
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: left;
+}
+.repair-shop-cost{
+    color: $orange-color;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    direction: rtl;
+    float: right;
+}
+.customer-payment{
+    text-align: left!important;
+}
+.arrow-down-base{
+    margin-left: 10px;
+}
+.total-cost-box{
+    border-radius: 30px;
+    background-color: #777;
+    margin-top: 20px;
+}
+.accept-request-box{
+    margin-top: 20px;
+    h4{
+        color: $orange-color;
+        text-align: center;
+    }
+}
+.button-success{
+    float: right;
+}
+///////////////////////////toggle-button
+app-toggle-button{
+    margin-top: 10px;
+}
+//////////////////////////range slider
+
+::ng-deep {
+    .custom-slider .ng5-slider .ng5-slider-bar {
+        background: $orange-color;
+        height: 2px;
+    }
+    .custom-slider .ng5-slider .ng5-slider-selection {
+        background: orange;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-pointer {
+        width: 8px;
+        height: 16px;
+        top: auto; /* to remove the default positioning */
+        bottom: 0;
+        background-color: #aaaaaa;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-pointer:after {
+        display: none;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-bubble {
+        bottom: 14px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-limit {
+        font-weight: bold;
+        color: orange;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-tick {
+        width: 1px;
+        height: 10px;
+        margin-left: 4px;
+        border-radius: 0;
+        background: $orange-color;
+        top: -1px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+        background: orange;
+    }
+    .ng5-slider .ng5-slider-bubble.ng5-slider-limit {
+        color: #bbb!important;
+    }
+    .ng5-slider .ng5-slider-bubble{
+        color: #bbb!important;
+    }
+}
+
+.basket-box{
+    position: fixed;
+    top: 137px;
+    width: 160px;
+    background: $orange-color;
+    border-radius: 50px;
+    height: 45px;
+    right: -30px;
+    h6 {
+        float: right;
+        margin: 11px 35px 13px 13px;
+    }
+    svg-icon{
+        margin:10px 10px 4px 4px;
+    }
+
+}
+.basket-add-count{
+    width: 25px;
+    height: 25px;
+    background: #0ead09;
+    color: #eee;
+    text-align: center;
+    left: 33px;
+    border-radius: 30px;
+    top: 2px;
+    position: absolute;
+}
+.scrollable-div{
+    overflow-y: auto;
+    margin-top: 90px;
+    padding-bottom: 15vh;
+}

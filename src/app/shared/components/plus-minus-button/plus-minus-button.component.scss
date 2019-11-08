@@ -1,0 +1,48 @@
+@import "../../../../styles/common-styles";
+:host {
+    display: block;
+    width: 20px;
+    height: 60px;
+}
+.plus{
+    button{
+        width: 36px;
+        height: 30px;
+        font-size: 20px;
+        background: #222;
+        box-shadow: none;
+        border: 0px;
+        border-top-left-radius:5px ;
+        border-top-right-radius:5px ;
+        color: #0ead09;
+        cursor: pointer;
+    }
+}
+.minus{
+    button{
+        width: 36px;
+        height: 30px;
+        font-size: 20px;
+        background: #222;
+        box-shadow: none;
+        border: 0px;
+        border-bottom-left-radius:5px ;
+        border-bottom-right-radius:5px ;
+        color: #d73b33;
+        cursor: pointer;
+    }
+}
+.count{
+    input{
+        width: 36px;
+        text-align: center;
+        background-color: #222!important;
+        border: 0px;
+        border-top: 1px solid #444;
+        border-bottom: 1px solid #444;
+        color: white;
+        :focus{
+            outline:none;
+        }
+    }
+}
