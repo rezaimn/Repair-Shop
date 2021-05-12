@@ -24,7 +24,7 @@
     "@angular/router": "8.0.0",
     "@ng-bootstrap/ng-bootstrap": "4.2.1",
     "angular-svg-icon": "^7.2.1",
-    "chart.js": "2.7.3",
+    "chart.js": "2.9.4",
     "core-js": "2.5.7",
     "font-awesome": "4.7.0",
     "jalali-moment": "^3.3.3",
